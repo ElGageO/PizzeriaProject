@@ -14,7 +14,12 @@
     <li>This pizza has no toppings.</li>
     {% endfor %}
 </ul>
-    <p>Comments</p>
+
+<p>
+    <img src="{{ pizza.picture.url }}">
+</p>
+
+<p>Comments</p>
 
 <ul>
     {% for c in comments %}
