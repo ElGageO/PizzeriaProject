@@ -3,6 +3,7 @@
 {% block content %}
 
 <p>Pizza: {{ pizza }} </p>
+<p>Toppings</p>
 
 <ul>
     {% for t in toppings %}
@@ -13,5 +14,25 @@
     <li>This pizza has no toppings.</li>
     {% endfor %}
 </ul>
+    <p>Comments</p>
+
+<ul>
+    {% for c in comments %}
+    <li>
+        <p>{{ c.text|linebreaks }}</p>
+        <p>Commented on {{ c.date_added }} by {{ c.owner }}</p>
+    </li>
+    {% empty %}
+    <li>No one has commented on this pizza yet.</li>
+    {% endfor %}
+</ul>
+
+<p>
+    {% if user.is_authenticated %}
+        <a href="{% url 'pizzas:new_comment' pizza.id %}">Leave a Comment</a>
+    {% else %}
+        <a href="{% url 'users:login' %}">Leave a Comment</a>
+    {% endif %}
+</p>
 
 {% endblock content %}
