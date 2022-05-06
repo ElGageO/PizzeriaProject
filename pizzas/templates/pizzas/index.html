@@ -1,9 +1,21 @@
 {% extends "pizzas/base.html" %}
 
-{% block content %}
+{% block page_header %}
+    <div class="jumbotron">
+        <h1 class="display-3">Pizza for pizza lovers.</h1>
 
-<p>
-    This system allows the pizzeria to see what pizzas are on the menu.
-</p>
+        <p class="lead">El Gage-o's pizzeria is proud to bring you authentic Italian pizza
+            with the freshest ingredients and the most high-quality cheeses. We pride ourselves
+            on the simplicity of our menu, created at the highest level.
+        </p>
 
-{% endblock content %}
+        <p>
+            {% load static %} 
+            <img src="{% static 'logo/Pizzeria-Logo.jpeg' %}" alt="logo" />
+        </p>
+
+        <p class="lead">Disclaimer: The pizzas are not topped with knives and forks as the image would suggest.</p>
+
+        <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">Register &raquo;</a>
+    </div>
+{% endblock page_header %}
